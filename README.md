@@ -82,7 +82,7 @@ Para contexto: GPT-2 small tiene 117M. Mi modelo tiene 3× menos. Mixtral 8×7B 
 
 ## El hardware: un Mac Mini M4
 
-Un Mac Mini M4 con 24 GB de memoria unificada. Sin GPU dedicada en el sentido clásico. Sin nube. Sin factura de AWS al final del mes.
+Un Mac Mini M4 con 16 GB de memoria unificada. Sin GPU dedicada en el sentido clásico. Sin nube. Sin factura de AWS al final del mes.
 
 El chip M4 de Apple tiene un acelerador de ML integrado accesible vía **Metal Performance Shaders (MPS)**. PyTorch lo soporta de forma nativa. El entrenamiento corre directamente en el chip.
 
