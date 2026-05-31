@@ -24,11 +24,11 @@ ARCHIVO_MODELO    = "mini_moe_react_weights.pt"
 ARCHIVO_TOKENIZER = "bpe_react_tokenizer_v2.json"   # byte-level BPE (sin camelCase roto)
 
 LONGITUD_CONTEXTO  = 256           # 128 → 256: mejor coherencia en generación
-DIM_EMBEDDING      = 512
+DIM_EMBEDDING      = 2048
 NUM_CABEZAS        = 8
 DIM_FEEDFORWARD    = 512
 NUM_CAPAS          = 6
-NUM_EXPERTOS       = 4
+NUM_EXPERTOS       = 8
 TOP_K              = 2             # expertos activos por token (sparsity real)
 TAMANO_VOCABULARIO = 32000         # debe coincidir con tok.get_vocab_size()
 
@@ -37,7 +37,7 @@ LR            = 3e-4
 EPOCAS        = 5
 BATCH_SIZE    = 32                 # batch físico (cabe en MPS)
 ACCUM_STEPS   = 8                  # batch efectivo = BATCH_SIZE * ACCUM_STEPS = 256
-STRIDE        = 64                 # solape de ventanas (2x cobertura con 24M tokens)
+STRIDE        = 128                 # solape de ventanas (2x cobertura con 24M tokens)
 VAL_FRAC      = 0.05               # fracción del corpus reservada a validación
 AUX_LOSS_COEF = 0.01               # peso del load-balancing loss del MoE
 GRAD_CLIP     = 1.0
