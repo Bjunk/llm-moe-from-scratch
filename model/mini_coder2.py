@@ -35,8 +35,8 @@ TAMANO_VOCABULARIO = 32000         # debe coincidir con tok.get_vocab_size()
 # --- Entrenamiento ---
 LR            = 3e-4
 EPOCAS        = 5
-BATCH_SIZE    = 32                 # batch físico (cabe en MPS)
-ACCUM_STEPS   = 8                  # batch efectivo = BATCH_SIZE * ACCUM_STEPS = 256
+BATCH_SIZE    = 16                 # batch físico (cabe en MPS)
+ACCUM_STEPS   = 16                  # batch efectivo = BATCH_SIZE * ACCUM_STEPS = 256
 STRIDE        = 512                 # solape de ventanas (2x cobertura con 24M tokens)
 VAL_FRAC      = 0.05               # fracción del corpus reservada a validación
 AUX_LOSS_COEF = 0.01               # peso del load-balancing loss del MoE
@@ -245,8 +245,9 @@ def entrenar(tokens_np=None):
                 scheduler.step()
                 optimizador.zero_grad(set_to_none=True)
 
-            if (nb + 1) % 500 == 0:
-                print(f"   ↳ [Época {epoca+1}] Lote {nb+1}/{lotes_por_epoca} -> "
+            if (nb + 1) % 100 == 0:
+                hora = time.strftime("%H:%M:%S")
+                print(f"   ↳ [{hora}] Época {epoca+1} | Lote {nb+1}/{lotes_por_epoca} -> "
                       f"CE: {loss_ce.item():.4f} | aux: {aux.item():.4f} | "
                       f"ppl: {math.exp(min(loss_ce.item(), 20)):.1f}")
 
