@@ -38,7 +38,7 @@ import requests
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # ========================== CONFIGURACIÓN ==========================
-ARCHIVO_SALIDA    = "docs_dataset.txt"
+ARCHIVO_SALIDA    = "dataset/docs_dataset.txt"
 WORKERS           = 10           # descargas paralelas
 DELAY_API         = 0.2          # segundos entre llamadas a la Contents API
 MIN_CHARS         = 150          # descartar docs demasiado cortos

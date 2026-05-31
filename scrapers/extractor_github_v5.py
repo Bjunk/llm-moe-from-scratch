@@ -22,7 +22,7 @@ GITHUB_TOKEN     = os.environ.get("GITHUB_TOKEN", "")   # NUNCA hardcodeado
 CANTIDAD_REPOS   = 1000
 ESTRELLAS_MIN    = 100        # ≥100 stars garantiza calidad y alcanza 1000 repos
 TEMPORAL_DIR     = "./temp_repos"
-ARCHIVO_SALIDA   = "mega_dataset_react.txt"
+ARCHIVO_SALIDA   = "dataset/mega_dataset_react.txt"
 CHECKPOINT_FILE  = "extractor_checkpoint.txt"  # guarda progreso para reanudar
 MIN_CHARS_ARCHIVO = 50        # descartar archivos demasiado pequeños
 
