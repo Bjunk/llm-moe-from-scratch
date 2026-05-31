@@ -10,7 +10,7 @@ modelo.eval()
 print(f"✅ Modelo cargado\n")
 
 # ── Cargar tokenizador ─────────────────────────────────────────────
-tok = Tokenizer.from_file("bpe_react_tokenizer.json")
+tok = Tokenizer.from_file("bpe_react_tokenizer_v2.json")
 
 # ── Prompts de prueba ──────────────────────────────────────────────
 prompts = [
