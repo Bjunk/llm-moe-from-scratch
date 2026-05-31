@@ -165,14 +165,22 @@ def construir_modelo():
 
 # ============================ DATOS ============================
 def cargar_tokens():
+    cache = ARCHIVO_DATASET.replace(".txt", "_tokens.npy")
+    if os.path.exists(cache):
+        print(f"⚡ Tokens en caché: {cache}")
+        return np.load(cache)
+
+    print("🔤 Tokenizando dataset (solo esta vez, ~30-60 min)...")
     tokenizer = Tokenizer.from_file(ARCHIVO_TOKENIZER)
     assert tokenizer.get_vocab_size() == TAMANO_VOCABULARIO, (
         f"Vocab del tokenizer ({tokenizer.get_vocab_size()}) != TAMANO_VOCABULARIO ({TAMANO_VOCABULARIO})"
     )
     with open(ARCHIVO_DATASET, "r", encoding="utf-8") as f:
         ids = tokenizer.encode(f.read()).ids
-    return np.array(ids, dtype=np.int64)
-
+    tokens = np.array(ids, dtype=np.int64)
+    np.save(cache, tokens)
+    print(f"💾 Caché guardado: {cache} ({tokens.nbytes/1e6:.0f} MB)")
+    return tokens
 
 # ============================ ENTRENAMIENTO ============================
 def entrenar(tokens_np=None):
