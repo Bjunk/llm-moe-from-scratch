@@ -19,7 +19,7 @@ from tokenizers import Tokenizer
 warnings.filterwarnings("ignore", category=UserWarning)
 
 # ============================ CONFIGURACIÓN ============================
-ARCHIVO_DATASET   = "mega_dataset_react.txt"
+ARCHIVO_DATASET   = "dataset/dataset_completo.txt"
 ARCHIVO_MODELO    = "mini_moe_react_weights.pt"
 ARCHIVO_TOKENIZER = "bpe_react_tokenizer_v2.json"   # byte-level BPE (sin camelCase roto)
 

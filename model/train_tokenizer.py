@@ -22,7 +22,7 @@ from tokenizers.pre_tokenizers import ByteLevel
 from tokenizers.decoders import ByteLevel as ByteLevelDecoder
 
 # ========================== CONFIGURACIÓN ==========================
-ARCHIVO_DATASET   = "mega_dataset_react.txt"
+ARCHIVO_DATASET   = "dataset/dataset_completo.txt"
 ARCHIVO_SALIDA    = "bpe_react_tokenizer_v2.json"
 VOCAB_SIZE        = 32000
 MIN_FREQUENCY     = 2          # ignora tokens que aparecen menos de 2 veces
