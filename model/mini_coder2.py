@@ -35,9 +35,9 @@ TAMANO_VOCABULARIO = 32000         # debe coincidir con tok.get_vocab_size()
 # --- Entrenamiento ---
 LR            = 3e-4
 EPOCAS        = 5
-BATCH_SIZE    = 16                 # batch físico (cabe en MPS)
-ACCUM_STEPS   = 16                  # batch efectivo = BATCH_SIZE * ACCUM_STEPS = 256
-STRIDE        = 128                 # solape de ventanas (2x cobertura con 24M tokens)
+BATCH_SIZE    = 32                 # batch físico (cabe en MPS)
+ACCUM_STEPS   = 8                  # batch efectivo = BATCH_SIZE * ACCUM_STEPS = 256
+STRIDE        = 512                 # solape de ventanas (2x cobertura con 24M tokens)
 VAL_FRAC      = 0.05               # fracción del corpus reservada a validación
 AUX_LOSS_COEF = 0.01               # peso del load-balancing loss del MoE
 GRAD_CLIP     = 1.0
